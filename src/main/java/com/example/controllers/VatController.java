@@ -14,7 +14,7 @@ public class VatController {
         this.vatService = vatService;
     }
 
-    @PostMapping
+    @PostMapping("/calculate")
     String calculate(double nettoPrice, String category, Model model) {
         double vat = vatService.calculateVat(nettoPrice, category);
         double bruttoPrice = vatService.calculateBruttoPrice(nettoPrice, category);
