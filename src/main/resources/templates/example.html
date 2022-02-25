@@ -7,10 +7,9 @@
 <body>
 <h1>Lista osób</h1>
 <ul>
-    <li th:each="person: ${people}">
-        <span th:text="'Imię: ' + ${person.firstName}"></span>&nbsp;
-        <span th:text="'Nazwisko: ' + ${person.lastName}"></span>
-    </li>
+    <ul>
+        <li th:each="person, status: ${people}" th:text="${status.count + '/' + status.size + ' ' + person.firstName + ' ' + person.lastName}"></li>
+    </ul>
 </ul>
 </body>
 </html>
