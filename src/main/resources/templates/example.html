@@ -15,8 +15,9 @@
 <div th:if="${person}">
     <h1>Cześć</h1>
     <p>Poniżej znajdują się Twoje informacje.</p>
-    <p th:text="'Imię: ' + ${person.firstName}">John</p>
-    <p th:text="'Nazwisko: ' + ${person.lastName}">Doe</p>
+    <!-- Wyświetl imię i nazwisko jeżeli są dostępne, a jeżeli nie to wyświetl 'Brak' -->
+    <p th:text="${person.firstName}? 'Imię: ' + ${person.firstName} : 'Brak imienia'">John</p>
+    <p th:text="${person.lastName}? 'Nazwisko: ' + ${person.lastName} : 'Brak nazwiska'">Doe</p>
     <!--  Wyświetl nagłówek, gdy wartość atrybutu age jest większa bądź równa 18  -->
     <p th:if="${person.age >= 18}">Pełnoletni</p>
     <!--  Wyświetl nagłówek, gdy wartość atrybutu age jest mniejsza od 18  -->
