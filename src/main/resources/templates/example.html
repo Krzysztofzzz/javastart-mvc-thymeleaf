@@ -7,9 +7,11 @@
 <body>
 <h1>Lista osób</h1>
 <ul>
-    <ul>
-        <li th:each="person, status: ${people}" th:text="${status.count + '/' + status.size + ' ' + person.firstName + ' ' + person.lastName}"></li>
-    </ul>
+    <li th:each="person, status: ${people}" th:text="${status.count + '/' + status.size + ' ' + person.firstName + ' ' + person.lastName}"></li>
+</ul>
+<h2>Lista generowana na bazie sekwencji:</h2>
+<ul>
+    <li th:each="i: ${#numbers.sequence(1, size)}" th:text="'Liczba nr ' + ${i}">Liczba nr...</li>
 </ul>
 </body>
 </html>

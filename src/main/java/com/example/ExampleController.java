@@ -17,6 +17,7 @@ public class ExampleController {
                 new Person("Anna", "Nowak"),
                 new Person("Marta", "Cybulska")
         );
+        model.addAttribute("size", 5);
         model.addAttribute("people", people);
         return "example";
     }
