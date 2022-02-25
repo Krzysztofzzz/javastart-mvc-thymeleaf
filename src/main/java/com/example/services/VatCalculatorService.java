@@ -9,7 +9,7 @@ public class VatCalculatorService {
         return nettoPrice + calculateVat(nettoPrice, category);
     }
 
-    private double calculateVat(double nettoPrice, String category) {
+    public double calculateVat(double nettoPrice, String category) {
         double vatRate = switch (category) {
             case "service" -> 0.23;
             case "food" -> 0.05;
