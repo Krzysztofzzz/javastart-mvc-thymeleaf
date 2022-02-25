@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" th:lang="${lang}" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title><!DOCTYPE html>
-        <html lang="pl" xmlns:th="http://www.thymeleaf.org">
-        <head>
-        <meta charset="UTF-8">
-        <title>Instrukcje sterujące</title>
+    <title>Instrukcje sterujące</title>
 </head>
 <body>
 <!-- Jeżeli w kontrolerze nie ustawimy atrybutu person, to wyświelti się poniższy paragraf -->
 <p th:unless="${person}">Nie przekazano obiektu reprezentującego osobę</p>
 
 <div th:if="${person}">
-    <h1>Cześć</h1>
+    <div th:switch="${lang}">
+        <h2 th:case="pl">Cześć!</h2>
+        <h2 th:case="es">Hola!</h2>
+        <h2 th:case="de">Hallo!</h2>
+        <h2 th:case="*">Hello!</h2> <!-- Odpowiednik bloku default -->
+    </div>
     <p>Poniżej znajdują się Twoje informacje.</p>
-    <!-- Wyświetl imię i nazwisko jeżeli są dostępne, a jeżeli nie to wyświetl 'Brak' -->
     <p th:text="${person.firstName}? 'Imię: ' + ${person.firstName} : 'Brak imienia'">John</p>
     <p th:text="${person.lastName}? 'Nazwisko: ' + ${person.lastName} : 'Brak nazwiska'">Doe</p>
     <!--  Wyświetl nagłówek, gdy wartość atrybutu age jest większa bądź równa 18  -->
@@ -23,11 +23,6 @@
     <!--  Wyświetl nagłówek, gdy wartość atrybutu age jest mniejsza od 18  -->
     <p th:unless="${person.age >= 18}">Nieletni</p>
 </div>
-
-</body>
-</html></title>
-</head>
-<body>
 
 </body>
 </html>
