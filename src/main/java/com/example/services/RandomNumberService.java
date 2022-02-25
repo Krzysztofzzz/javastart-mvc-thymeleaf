@@ -8,7 +8,7 @@ import java.util.Random;
 public class RandomNumberService {
     private final Random random = new Random();
 
-    int generateRandomInRange(int start, int end) {
+    public int generateRandomInRange(int start, int end) {
         int range = end - start + 1;
         int randomNumber = random.nextInt(range);
         return start + randomNumber;
