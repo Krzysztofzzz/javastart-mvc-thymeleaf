@@ -1,5 +1,6 @@
 package com.example.controllers;
 
+import com.example.dto.VatDto;
 import com.example.services.VatCalculatorService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +17,7 @@ public class VatController {
 
     @PostMapping("/calculate")
     String calculate(double nettoPrice, String category, Model model) {
-        double vat = vatService.calculateVat(nettoPrice, category);
-        double bruttoPrice = vatService.calculateBruttoPrice(nettoPrice, category);
-        model.addAttribute("nettoPrice", nettoPrice);
-        model.addAttribute("bruttoPrice", bruttoPrice);
+        VatDto vat = vatService.calculateVat(nettoPrice,category);
         model.addAttribute("vat", vat);
         return "result";
     }
