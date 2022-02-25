@@ -2,7 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title><!DOCTYPE html>
+        <html lang="pl" xmlns:th="http://www.thymeleaf.org">
+        <head>
+        <meta charset="UTF-8">
+        <title>Instrukcje sterujące</title>
+</head>
+<body>
+<!-- Jeżeli w kontrolerze nie ustawimy atrybutu person, to wyświelti się poniższy paragraf -->
+<p th:unless="${person}">Nie przekazano obiektu reprezentującego osobę</p>
+
+<div th:if="${person}">
+    <h1>Cześć</h1>
+    <p>Poniżej znajdują się Twoje informacje.</p>
+    <p th:text="'Imię: ' + ${person.firstName}">John</p>
+    <p th:text="'Nazwisko: ' + ${person.lastName}">Doe</p>
+    <!--  Wyświetl nagłówek, gdy wartość atrybutu age jest większa bądź równa 18  -->
+    <p th:if="${person.age >= 18}">Pełnoletni</p>
+    <!--  Wyświetl nagłówek, gdy wartość atrybutu age jest mniejsza od 18  -->
+    <p th:unless="${person.age >= 18}">Nieletni</p>
+</div>
+
+</body>
+</html></title>
 </head>
 <body>
 
